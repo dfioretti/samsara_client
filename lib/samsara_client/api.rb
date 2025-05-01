@@ -1,10 +1,18 @@
-# lib/samsara_api/client.rb
+# frozen_string_literal: true
 
 require "net/http"
 require "uri"
 require "json"
 
 module SamsaraClient
+  # Api class handles all HTTP communication with the Samsara API
+  #
+  # @example Initialize and use the client
+  #   client = SamsaraClient::Api.new(api_key)
+  #   response = client.request('GET', '/fleet/drivers')
+  #
+  # @attr_reader [String] api_key The API key used for authentication
+  # @attr_reader [String] base_url The base URL for the Samsara API
   class Api
     def initialize(api_key, base_url = "https://api.samsara.com")
       @api_key = api_key
